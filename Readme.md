@@ -99,3 +99,7 @@ admin.role = "Si abal - abal";
 admin.activity = "Sedang ngibulin via youtube";
 admin.login(); // Sedang login
 ```
+
+### Super Constructor
+Method `super()` digunakan untuk mengambil constructor yang ada di parent class-nya. Ini dilakukan di child class yang juga 
+memiliki constructor. Tujuannya adalah kita bisa mengisi constructor di parent melalui object yang diambil dari class child.
