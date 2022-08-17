@@ -52,3 +52,26 @@ console.log(bebek); // HewanThree { nama: 'Duck', kaki: 2, isMamalia: false }
 
 bebek.berenang(); // Duck sedang berenang
 ```
+
+### Constructor Lanjutan
+Dengan adanya constructor yang dijalankan pertama kali setiap membuat object, maka kita bisa set property kita di constructor, seperti contoh :
+```
+class HewanFour {
+    nama: string;
+    kaki: number;
+    mamalia: boolean;
+
+    constructor(nama: string, kaki: number, mamalia: boolean) {
+        this.nama = nama;
+        this.kaki = kaki;
+        this.mamalia = mamalia;
+    }
+    
+    getHewan():void {
+        console.log(`${this.nama} memiliki jumlah kaki ${this.kaki} dan konfirmasi mamalia : ${this.mamalia}`);
+    }
+}
+
+let kambing = new HewanFour("Embekk", 4, true);
+kambing.getHewan(); // Embekk memiliki jumlah kaki 4 dan konfirmasi mamalia : true
+```
