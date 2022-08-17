@@ -1,0 +1,17 @@
+{
+  "name": "typescript-oop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./build/Class.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.7.4"
+  }
+}
