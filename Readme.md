@@ -26,3 +26,29 @@ class HewanTwo {
 let katak = new HewanTwo();
 ```
 Ketika kita membuat object dari class `HewanTwo` maka secara otomatis method `contructor` ini akan dieksekusi.
+
+### Property Dan Method
+Property sama halnya dengan variabel / attribut yang nantinya akan menampung value saat kita membuat object nanti. 
+Sedangkan method sama halnya dengan function.
+```
+class HewanThree {
+    // properti
+    nama: string = '';
+    kaki: number = 0;
+    isMamalia: boolean = false;
+
+    // method
+    berenang(): void {
+        console.log(`${this.nama} sedang berenang`);
+    }
+}
+
+const bebek = new HewanThree();
+console.log(bebek); // HewanThree { nama: '', kaki: 0, isMamalia: false }
+
+bebek.nama = "Duck";
+bebek.kaki = 2;
+console.log(bebek); // HewanThree { nama: 'Duck', kaki: 2, isMamalia: false }
+
+bebek.berenang(); // Duck sedang berenang
+```
