@@ -75,3 +75,27 @@ class HewanFour {
 let kambing = new HewanFour("Embekk", 4, true);
 kambing.getHewan(); // Embekk memiliki jumlah kaki 4 dan konfirmasi mamalia : true
 ```
+
+### Inheritance
+Inheritance atau pewarisan adalah suatu class parent yang menurunkan proprty dan method di class child. Jadi ketika ada suatu class 
+melakukan inheritance ke class parent maka semua property dan method di class parent bisa dipakai oleh class child tersebut.
+```
+class User {
+    name: string = '';
+    role: string = '';
+
+    login(): void {
+        console.log(`Sedang login`);
+    }
+}
+
+class Admin extends User {
+    activity: string = '';
+}
+
+const admin = new Admin();
+admin.name = "Si Udin";
+admin.role = "Si abal - abal";
+admin.activity = "Sedang ngibulin via youtube";
+admin.login(); // Sedang login
+```
