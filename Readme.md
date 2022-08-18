@@ -133,3 +133,74 @@ bencok.berjalan(); // Kodok lagi bernafas!!
 
 ### Method Overriding
 Method overriding adalah sebuah method yang akan menimpa method yang ada di parent class-nya.
+```
+class Animal {
+    name: string = '';
+
+    berjalan(): void {
+        console.log('Sedang bernafas!!');
+    }
+}
+```
+Di sini kita memiliki class Animal dengan method `berjalan()`. Kemudian kita buat satu class yang meng-extends class Animal.
+```
+class Kodok extends Animal {
+    berjalan(): void {
+        console.log('Kodok lagi bernafas!!');
+    }
+}
+```
+Di class Kodok ini kita juga membuat method `berjalan`. Di sini ketika kita membuat objek dan mengakses method `berjalan` maka 
+method di class Kodok yang akan dieksekusi.
+```
+let bencok = new Kodok();
+bencok.berjalan(); // Kodok lagi bernafas!!
+```
+
+### Visibility / Access Modifier
+Tujuan adanya visibility ini adalah untuk membatasi hak akses property / method di dalam class. Ada 3 macam visibility, yaitu 
+`public`, `protected` dan `private`.
+- `public` : bisa diakses dari mana saja.
+- `protected`  : hanya bisa diakses dari class itu sendiri atau class yang menjadi turunannya.
+- `private` : hanya bisa diakses di dalam class itu sendiri, bahkan di child tidak bisa mengaksesnya.
+```
+class Person {
+    name: string;
+    protected address: string;
+    private isMarriage: boolean;
+
+    constructor(name: string, address: string, isMarriage: boolean) {
+        this.name = name;
+        this.address = address;
+        this.isMarriage = isMarriage;
+    }
+
+    walking(): void {
+        console.log(`${this.name} sedang berjalan jalan`);
+    }
+}
+```
+Class di atas memiliki property dengan beberapa type access modifier. Secara default jika kita tidak mendeklarasikan type 
+access modifier maka akan diset sebagai `public`.
+```
+class IronMan extends Person {
+    private custom: string = "Zirah Baja";
+    private weapon: string = "Laser";
+    private isLeader: boolean = true;
+
+    getHero(): void {
+        console.log(`${this.custom} ${this.weapon} ${this.isLeader}`);
+        console.log(`${this.address}`);
+        // console.log(`${this.isMarriage}`) // error private modifier
+    }
+}
+```
+Di sini terlihat saat kita mengakses property `isMarriage` dari class IronMan akan terjadi error. Hal ini karena di class 
+Person kita set access modifiernya sebagai `private` shingga class turunannya pun tidak akan bisa mengaksesnya.
+```
+let hero1 = new IronMan("Iron Man", "Gunungkidul", true);
+hero1.getHero();
+hero1.walking();
+// hero1.custom; // error private modifier
+```
+Saat kita membuat objek-nya pun kita tidak akan bisa langsung mengakses property / method yang memiliki akses modifier protected / private.

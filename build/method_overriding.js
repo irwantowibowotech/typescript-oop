@@ -13,4 +13,4 @@ class Kodok extends Animal {
     }
 }
 let bencok = new Kodok();
-bencok.berjalan();
+bencok.berjalan(); // Kodok lagi bernafas!!
