@@ -103,3 +103,33 @@ admin.login(); // Sedang login
 ### Super Constructor
 Method `super()` digunakan untuk mengambil constructor yang ada di parent class-nya. Ini dilakukan di child class yang juga 
 memiliki constructor. Tujuannya adalah kita bisa mengisi constructor di parent melalui object yang diambil dari class child.
+```
+class Employee {
+    name: string;
+    division: string;
+
+    constructor(name: string, division: string) {
+        this.name = name;
+        this.division = division;
+    }
+}
+```
+Di sini kita memiliki sebuah class Employee yang punya constructor berisi name dan division. Ketika kita ingin membuat 
+class baru yang meng-extends Employee dan juga memiliki contructor sendiri, maka kita harus menggunakan keyword `super()` 
+untuk memanggil name dan division. Karena jika kita tidak memanggilnya maka akan terjadi error.
+```
+class Manager extends Employee{
+    fee: number;
+
+    constructor(name: string, division: string, fee: number) {
+        super(name, division)
+        this.fee = fee;
+    }
+}
+
+let bencok = new Kodok();
+bencok.berjalan(); // Kodok lagi bernafas!!
+```
+
+### Method Overriding
+Method overriding adalah sebuah method yang akan menimpa method yang ada di parent class-nya.

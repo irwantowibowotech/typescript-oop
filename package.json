@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./build/super_constructor.js\""
+    "build": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./build/method_overriding.js\""
   },
   "keywords": [],
   "author": "",
