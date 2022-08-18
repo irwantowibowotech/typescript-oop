@@ -127,6 +127,9 @@ class Manager extends Employee{
     }
 }
 
-let irwanto = new Manager('Irwanto', 'Keuangan', 20000000);
-console.log(irwanto);
+let bencok = new Kodok();
+bencok.berjalan(); // Kodok lagi bernafas!!
 ```
+
+### Method Overriding
+Method overriding adalah sebuah method yang akan menimpa method yang ada di parent class-nya.
