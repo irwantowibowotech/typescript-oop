@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./build/visibility.js\""
+    "build": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./build/readonly_modifier.js\""
   },
   "keywords": [],
   "author": "",
