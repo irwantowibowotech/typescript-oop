@@ -204,3 +204,21 @@ hero1.walking();
 // hero1.custom; // error private modifier
 ```
 Saat kita membuat objek-nya pun kita tidak akan bisa langsung mengakses property / method yang memiliki akses modifier protected / private.
+
+### Readonly Modifier
+Di typescript terdapat satu lagi modifier yang perlu kita ketahui yaitu `readonly`. `readonly` property ini akan menjadikan 
+suatu property tidak bisa diubah datanya. Istilah lain dari modifier ini adalah `immutable`.
+```
+class Mantab {
+    readonly isActive: boolean = true;
+}
+```
+Saat kita membuat class dan memiliki property readonly maka ketika kita mencoba untuk merubah nilai property tersebut maka akan 
+terjadi error.
+```
+const employee = new Mantab();
+console.log(employee.isActive) // true
+// employee.isActive = false; // error readonly
+```
+Sekilas ini sama dengan `const`, perbedaannya adalah jika `const` hanya bisa digunakan pada variabel biasa, sedangkan `readonly` hanya bisa 
+di dalam class.
