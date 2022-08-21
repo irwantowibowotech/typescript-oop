@@ -222,3 +222,30 @@ console.log(employee.isActive) // true
 ```
 Sekilas ini sama dengan `const`, perbedaannya adalah jika `const` hanya bisa digunakan pada variabel biasa, sedangkan `readonly` hanya bisa 
 di dalam class.
+
+### Getter dan Setter
+`getter` dan `setter` adalah sebuah method yang digunakan untuk mengambil (get) dan mengisi (set) sebuah property di dalam class.
+```
+class ProductA {
+    private _price: number = 0;
+    private discount: number = 0.05;
+
+    get price(): number {
+        return this._price;
+    }
+
+    set price(value: number) {
+        this._price = value - (value * this.discount);
+    }
+}
+```
+Setter di typescript ditandai dengan keyword `set` dan getter dengan keyword `get`. Contoh di atas adalah bagiamania kita 
+memberikan method setter dan getter untuk property `_product`.
+```
+const productA = new ProductA();
+productA.price = 2000;
+console.log(productA.price); // 1900
+```
+Contoh di atas bagaimana kita membuat object dari class `ProductA`. Yang perlu diperhatika di sini adalah `productA.price = 2000`. 
+Pada code `productA.price`, price ini akan mengacu ke method setter dan gettter price dan 2000 adalah value yang dikirimkan ke method setter.<br />
+Jadi kesimpulannya adalah `productA.price (2000)` --> `set price(2000)` --> `get price`.
