@@ -249,3 +249,67 @@ console.log(productA.price); // 1900
 Contoh di atas bagaimana kita membuat object dari class `ProductA`. Yang perlu diperhatika di sini adalah `productA.price = 2000`. 
 Pada code `productA.price`, price ini akan mengacu ke method setter dan gettter price dan 2000 adalah value yang dikirimkan ke method setter.<br />
 Jadi kesimpulannya adalah `productA.price (2000)` --> `set price(2000)` --> `get price`.
+
+### Static Property dan Static Method
+Static property / method adalah property atau method yang menempel pada class tersebut. Artinya adalah kita tidak perlu membuat objek untuk 
+mengaksesnya, cukup dengan sebutkan nama classnya lalu panggil property / method tersebut. <br />
+Untuk membuat static property / method kita cukup gunakan keyword `static` di property maupun method-nya.
+```
+class Ayam {
+    static nama: string = "Ciung"
+    static kaki: number = 2;
+
+    static berjalan() {
+        console.log(`${this.nama} berjalan dengan ${this.kaki} kaki`);
+    }
+}
+
+console.log('Nama hewan :', Ayam.nama); // Nama hewan : Ciung
+Ayam.berjalan(); // Ciung berjalan dengan 2 kaki
+```
+Yang perlu kita perhatikan adalah karena `static` itu menempel di class-nya maka penggunaan `this` tidak akan bisa digunakan 
+kecuali dia bertipe static juga.
+```
+class Ayam {
+    static kaki: number = 2;
+    
+    getKaki() {
+        console.log(this.kaki); // error
+    }
+}
+```
+Pada contoh di atas kita mencoba untuk mengakses property `kaki` di dalam method `getKaki` dengan menggunakan `this.kaki`. 
+Hal ini akan menyebabkan error karena method `getKaki` buka bertipe static. <br />
+Lalu kenapa yang method `berjalan` pada code di atas bisa menggunakan `this`? Jawabannya adalah karena method berjalan tersebut bertipe `static` 
+sehingga dia bisa mengguankan keyword this.
+Karena static menempel pada class itu sendiri maka untuk mengaksesnya kita sebutkan nama classnya alih alih menggunakan `this`.
+```
+class Ayam {
+    static kaki: number = 2;
+
+    getKaki() {
+        console.log(this.kaki); // error
+        console.log(Ayam.kaki);
+    }
+}
+
+const pitik = new Ayam();
+pitik.getKaki();
+```
+Type `static` ini juga bersifat global. Artinya ketika mengubah isi dari property-nya maka semua object yang mengakses property tersebut juga akan berubah. 
+Ini tentu berbeda dengan property biasa yang mana hanya pada object tertentu saja yang berubah.
+```
+const pitik = new Ayam();
+const pitik2 = new Ayam();
+const pitik3 = new Ayam();
+
+pitik.getKaki(); // 2
+pitik2.getKaki(); // 2
+pitik3.getKaki(); // 2
+
+Ayam.kaki = 4;
+
+pitik.getKaki(); // 4
+pitik2.getKaki(); // 4
+pitik3.getKaki(); // 4
+```
