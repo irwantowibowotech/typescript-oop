@@ -313,3 +313,33 @@ pitik.getKaki(); // 4
 pitik2.getKaki(); // 4
 pitik3.getKaki(); // 4
 ```
+
+### Return Type Method
+Return type di sini berfungsi untuk membatasi nilai balikan yang akan dikembalikan oleh method.
+```
+class Burung {
+    private kaki: number = 2;
+
+    getKaki(): number {
+        return this.kaki;
+    }
+}
+```
+Code di atas adalah method (getKaki()) yang mengembalikan nilai bertipe number (getKaki(): number), sehingga returnnya 
+juga harus bertipe number. Apabila kita memaksa untuk mengembalikan nilai dengan tipe data berbeda maka akan menyebabkan error.<br />
+Secara default ketika kita tidak menuliskan type data return-nya maka typescript akan memberi nilai defaule yaitu `void`.<br />
+Void di sini akan mengizinan kita untuk tidak mereturn nilai.
+```
+berjalan(): void {
+        console.log('Burung sedang berjalan!');
+    }
+```
+Ada juga return type yang kita pakai apabila method tersebut adalah asychronus yaitu `Promise<T>`. `Promise<T>` ini adalah type 
+return dari method yang menggunakan asynchronus (async).
+```
+async getNama(): Promise<string> {
+        return "Proses async berhasil dieksekuasi";
+    }
+```
+`T` pada `Primise<T>` artinya kita bebas mau mngembalin nilai, sebagai contoh Promise<string> maka method harus mengembalika nilai string,
+begitu pula jika saya menulis Promis<number> maka return harus bertipe number.
