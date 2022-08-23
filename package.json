@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./build/method_return_type.js\""
+    "build": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./build/abstract_class.js\""
   },
   "keywords": [],
   "author": "",
