@@ -341,5 +341,57 @@ async getNama(): Promise<string> {
         return "Proses async berhasil dieksekuasi";
     }
 ```
-`T` pada `Primise<T>` artinya kita bebas mau mngembalin nilai, sebagai contoh Promise<string> maka method harus mengembalika nilai string,
-begitu pula jika saya menulis Promis<number> maka return harus bertipe number.
+`T` pada `Promise<T>` artinya kita bebas mau mengembalikan nilai, sebagai contoh Promise<string> maka method harus mengembalikan nilai string,
+begitu pula jika saya menulis Promise<number> maka return harus bertipe number.
+
+### Abstract Class
+Abstract class adalah class yang tidak bisa diinstansiasi secara langsung oleh client karena bisa dibilang bentuknya masih belum jelas (abstrak).
+Setiap class yang meng-extends abstract class harus mengimplementasikan method yang sudah ditentukan oleh abstract class tersebut.<br />
+Dalam abstract class ini minimal harus ada satu abstract method.<br />
+Untuk membuat abstract class kita bisa gunakan keyword `abstract`.
+```
+abstract class Hewan2 {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    makan(): void {
+        console.log('Semua hewan pasti makan');
+    }
+
+    abstract bergerak(): void;
+}
+```
+Kode di atas adalah contoh abstract class yang memiliki satu abstract method. Nantina class yang extends class di atas harus memiliki 
+method bergerak. Dan di setiap class akan berbeda beda isi dari method bergerak ini.
+```
+class Kucing2 extends Hewan2{
+    constructor() {
+        super('Kucing');
+    }
+
+    bergerak(): void {
+        console.log('Kucing berjalan');
+    }
+}
+```
+```
+class Burung2 extends Hewan2 {
+    constructor() {
+        super('Burung');
+    }
+
+    bergerak(): void {
+        console.log('Burung terbang');
+    }
+}
+```
+```
+const kucing2 = new Kucing2();
+kucing2.bergerak();
+
+const burung2 = new Burung2();
+burung2.bergerak();
+```
